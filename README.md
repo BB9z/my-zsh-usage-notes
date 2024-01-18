@@ -2,6 +2,8 @@
 
 ## Parameter Expansion `#{参数扩展}`
 
+以下部分场景花括号可省略，但为了统一，建议全部使用花括号。
+
 ```zsh
 var="Hello, World"
 
@@ -51,6 +53,32 @@ echo ${var: -5:1}   # "W"
 
 # 双向截取
 echo ${var:3:-2}    # "lo, Wor"
+```
+
+路径相关（花括号可省略）：
+
+```zsh
+file="./README.md"
+
+# 目录部分
+$file:h     # .
+
+# 扩展名，不含点
+$file:e     # md
+
+# 文件名
+$file:t     # README.md
+
+# 文件名，不含扩展名
+$file:r     # ./README
+$file:t:r   # README
+
+# 绝对路径
+$file:a     # /Users/BB9z/github/my-zsh-usage-notes/README.md
+
+# 可联合
+$file:a:h   # /Users/BB9z/github/my-zsh-usage-notes
+$file:h:a   # /Users/BB9z/github/my-zsh-usage-notes
 ```
 
 ## Arithmetic Expansion `$((算术扩展))`
